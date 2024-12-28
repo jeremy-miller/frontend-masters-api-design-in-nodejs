@@ -4,7 +4,7 @@ const router = Router();
 
 // Product
 router.get("/products", (req, res) => {
-  res.json({ message: "hello" });
+  res.json({ message: "hello products" });
 });
 router.get("/products/:id", () => {});
 router.put("/products/:id", () => {});

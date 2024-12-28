@@ -20,7 +20,10 @@
   "homepage": "https://github.com/jeremy-miller/frontend-masters-api-design-in-nodejs#readme",
   "dependencies": {
     "@prisma/client": "^6.1.0",
+    "bcrypt": "^5.1.1",
+    "dotenv": "^16.4.7",
     "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2",
     "morgan": "^1.10.0"
   },
   "devDependencies": {

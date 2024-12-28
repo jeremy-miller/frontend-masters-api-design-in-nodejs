@@ -1,5 +1,7 @@
 import express from "express";
 import morgan from "morgan";
+import { createNewUser, signin } from "./handlers/user";
+import { protectMiddleware } from "./modules/auth";
 import router from "./router";
 
 const app = express();
@@ -16,6 +18,9 @@ app.get("/", (req, res) => {
   res.json({ message: "hello" });
 });
 
-app.use("/api", router);
+app.post("/user", createNewUser);
+app.post("/signin", signin);
+
+app.use("/api", protectMiddleware, router);
 
 export default app;

@@ -1,0 +1,33 @@
+{
+  "name": "frontend-masters-api-design-in-nodejs",
+  "version": "1.0.0",
+  "description": "Code for the Frontend Masters 'API Design in Node.js' course.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon src/index.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jeremy-miller/frontend-masters-api-design-in-nodejs.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jeremy-miller/frontend-masters-api-design-in-nodejs/issues"
+  },
+  "homepage": "https://github.com/jeremy-miller/frontend-masters-api-design-in-nodejs#readme",
+  "dependencies": {
+    "@prisma/client": "^6.1.0",
+    "express": "^4.21.2",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "nodemon": "^3.1.9",
+    "prisma": "^6.1.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.2"
+  }
+}

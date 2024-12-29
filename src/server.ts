@@ -13,14 +13,24 @@ app.use(express.urlencoded({ extended: true })); // allow clients to send query 
 
 // routes
 app.get("/", (req, res) => {
-  console.log("hello");
-  res.status(200);
-  res.json({ message: "hello" });
+  throw new Error("oops");
 });
 
 app.post("/user", createNewUser);
 app.post("/signin", signin);
 
 app.use("/api", protectMiddleware, router);
+
+app.use((err, req, res, next) => {
+  console.error(err);
+
+  if (err.type === "auth") {
+    res.status(401).json({ message: "Unauthorized" });
+  } else if (err.type === "input") {
+    res.status(400).json({ message: "Invalid input" });
+  } else {
+    res.status(500).json({ message: "Server error" });
+  }
+});
 
 export default app;

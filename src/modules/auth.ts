@@ -1,8 +1,9 @@
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
+import config from "../config";
 
 export async function hashPassword(password) {
-  return bcrypt.hash(password, parseInt(process.env.PASSWORD_SALT_ROUNDS));
+  return bcrypt.hash(password, parseInt(config.secrets.passwordSaltRounds));
 }
 
 export async function comparePasswords(password, hash) {
@@ -12,7 +13,7 @@ export async function comparePasswords(password, hash) {
 export function createJWT(user) {
   const token = jwt.sign(
     { id: user.id, username: user.username },
-    process.env.JWT_SECRET
+    config.secrets.jwtSecret
   );
   return token;
 }
@@ -36,7 +37,7 @@ export function protectMiddleware(req, res, next) {
   }
 
   try {
-    const user = jwt.verify(token, process.env.JWT_SECRET);
+    const user = jwt.verify(token, config.secrets.jwtSecret);
     req.user = user;
     next();
   } catch (err) {

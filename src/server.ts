@@ -13,7 +13,7 @@ app.use(express.urlencoded({ extended: true })); // allow clients to send query 
 
 // routes
 app.get("/", (req, res) => {
-  throw new Error("oops");
+  res.json({ message: "test" });
 });
 
 app.post("/user", createNewUser);

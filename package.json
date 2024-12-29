@@ -4,7 +4,9 @@
   "description": "Code for the Frontend Masters 'API Design in Node.js' course.",
   "main": "index.js",
   "scripts": {
+    "build": "tsc -p tsconfig.json",
     "dev": "nodemon src/index.ts",
+    "start": "node dist/index.js",
     "test": "jest"
   },
   "repository": {
